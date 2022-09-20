@@ -34,7 +34,7 @@ const long  gmtOffset_sec = 25200;
 const int   daylightOffset_sec = 0;
 char timeHour[11];
 char timeHour2[9];
-const char* ssid = "factory-A17-1F-2";
+const char* ssid = "factory-A8-1F-1";
 //const char* ssid = "Factory-A3-2F-1";
 const char* password = "qwerasdf";
 
@@ -44,8 +44,8 @@ int dem=0;
 int ledState = LOW;
 String timeHour1;
 String timeHour3;
-String content1 = "";
-String content2 = "";
+byte content1;
+byte content2;
 String sendContent;
 String test[]="";
 #define MQTT_PORT 8001
@@ -257,14 +257,14 @@ void setup() {
 
 void loop() {
 long now = millis();
-  if (now - lastMsg > 5000) {
+  if (now - lastMsg > 1000) {
     lastMsg = now;
-    printLocalTime();  
-    Error err = MB.addRequest((uint32_t)millis(), 1, READ_INPUT_REGISTER, 1056, 6);
+  //  printLocalTime();  
+    Error err = MB.addRequest((uint32_t)millis(), 1, READ_INPUT_REGISTER, 1054, 10);
     if (err != SUCCESS) {
       ModbusError e(err);
       Serial.printf("Error creating request: %02X - %s\n", (int)e, (const char *)e);
     }
-    sendSample();
+    sendNew();
   }
 }

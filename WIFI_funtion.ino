@@ -37,6 +37,7 @@ void onMqttDisconnect(AsyncMqttClientDisconnectReason reason) {
   }
 }
 void onMqttPublish(uint16_t packetId) {
+  Serial.println("");
   Serial.print("Publish acknowledged.");
   Serial.print("  packetId: ");
   Serial.println(packetId);
