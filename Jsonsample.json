@@ -4,11 +4,26 @@
   "Date": "12",
   "Time": "10",
   "To_Mqtt": {
-    "Power_on": "xyz",
-    "Power_off": "xyz",
-    "Operation_time": "xyz",
-    "Idle_time": "xyz",
-    "Cycle_time": "Fuck",
+    "Power_on": [
+      80,
+      443
+    ],
+    "Power_off": [
+      80,
+      443
+    ],
+    "Operation_time": [
+      80,
+      443
+    ],
+    "Idle_time": [
+      80,
+      443
+    ],
+    "Cycle_time": [
+      80,
+      443
+    ],
     "Output": [
       80,
       443
