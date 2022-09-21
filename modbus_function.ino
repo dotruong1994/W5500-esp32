@@ -5,10 +5,23 @@ void handleData(ModbusMessage response, uint32_t token)
   for (auto& byte : response) {
     Serial.printf("%02X ", byte);
   }
-  content1 = response[9];
-  content2 = response[10];
-//  sendContent = "["+content1 + "," + content2+"]";
-//  Serial.println(sendContent);
+  quantity_1 = response[1];
+  quantity_2 = response[2];
+  //-----------------------
+  STD_CT_1 = response[3];
+  STD_CT_2 = response[4];  
+  //-----------------------
+  PowerOnTD_1 = response[9];
+  PowerOnTD_2 = response[10];
+  //-----------------------
+  PowerOffTD_1 = response[11];
+  PowerOffTD_2 = response[12]; 
+  //-----------------------
+  OPtimetoday_1 = response[13];
+  OPtimetoday_2 = response[14];   
+  //-----------------------
+  IdleTimetoday_1 = response[15];
+  IdleTimetoday_2 = response[16];
 }
 
 // Define an onError handler function to receive error responses
